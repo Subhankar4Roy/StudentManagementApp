@@ -1,8 +1,17 @@
 <mat-list>
-    <mat-list-item *ngFor="let student of students">
+    <mat-list-item class="example-ripple-container mat-elevation-z0"
+    matRipple *ngFor="let student of students">
+    
       <mat-icon mat-list-icon>account_circle</mat-icon>
-      <div mat-line>{{student.name}}</div>
-      <div mat-line> {{student.email}} </div>
+      <div mat-line>{{student.name | uppercase}} </div>
+      <div mat-line> {{student.email | lowercase}} </div>
+      <mat-divider></mat-divider>
     </mat-list-item>
 </mat-list>
+
+<div class="fab">
+  <button mat-fab (click)="openDialog()" color="primary">
+    <mat-icon>person_add</mat-icon>
+  </button>
+</div>
   
