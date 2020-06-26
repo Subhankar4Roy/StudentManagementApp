@@ -1,1 +1,8 @@
-<p>student works!</p>
+<mat-list>
+    <mat-list-item *ngFor="let student of students">
+      <mat-icon mat-list-icon>account_circle</mat-icon>
+      <div mat-line>{{student.name}}</div>
+      <div mat-line> {{student.email}} </div>
+    </mat-list-item>
+</mat-list>
+  
