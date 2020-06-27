@@ -28,6 +28,27 @@ router.post('/', (req,res)=>{
   }
   );
 
+  router.put('/:id', (req, res)=>{
+    Studentmodel.findOneAndUpdate({_id:req.params.id},{
+      $set:{ name:req.body.name,
+             email:req.body.email,
+             phone:req.body.phone,
+             dept:req.body.dept,
+         
+           }
+    }, (err, docs)=>{if(!err) {res.json(docs);} else{res.json(err);}}
+
+    )
+  }
+  
+  
+  
+  
+  
+  
+  
+  )
+
 router.delete('/:id', (req, res, next)=>{
   
   Studentmodel.deleteOne({_id:req.params.id}, (err, docs)=>
