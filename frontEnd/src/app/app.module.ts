@@ -19,6 +19,7 @@ import { StudentComponent } from './student/student.component';
 import { from } from 'rxjs';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     DashboardComponent,
     StudentComponent,
     AddStudentComponent,
-    StudentDetailsComponent
+    StudentDetailsComponent,
+    HeaderComponent
   ],
   entryComponents:[AddStudentComponent, StudentDetailsComponent],
   imports: [
