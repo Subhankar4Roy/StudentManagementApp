@@ -1,5 +1,5 @@
 <mat-list>
-    <mat-list-item class="example-ripple-container mat-elevation-z0"
+    <mat-list-item (click)="openDialogToView()" class="example-ripple-container mat-elevation-z0"
     matRipple *ngFor="let student of students">
     
       <mat-icon mat-list-icon>account_circle</mat-icon>

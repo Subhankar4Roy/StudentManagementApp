@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../services/students.service';
 import {MatDialog} from '@angular/material/dialog';
 import { AddStudentComponent } from '../add-student/add-student.component';
+import { StudentDetailsComponent } from '../student-details/student-details.component';
 
 
 @Component({
@@ -25,6 +26,10 @@ export class StudentComponent implements OnInit {
   }
   openDialog() {
     this.dialog.open(AddStudentComponent);
+  }
+  openDialogToView(){
+    this.dialog.open(StudentDetailsComponent);
+
   }
 
 }
