@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {StudentsService} from '../services/students.service';
+import { StudentsService } from '../../services/students.service';
 import { Router } from '@angular/router'
 import { from } from 'rxjs';
 
@@ -21,7 +21,7 @@ export class AddStudentComponent implements OnInit {
         .subscribe(
           res => {
             console.log(res)
-            this.router.navigate(['/'])
+            this.router.navigate(['/students'])
           },
           err => console.log(err)
         )

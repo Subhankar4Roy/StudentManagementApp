@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentsService } from '../services/students.service';
+import { StudentsService } from '../../services/students.service';
 import {MatDialog} from '@angular/material/dialog';
 import { AddStudentComponent } from '../add-student/add-student.component';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
