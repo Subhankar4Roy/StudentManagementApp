@@ -10,12 +10,12 @@ var studentschema = new mongoose.Schema({
     passingYear:{type:Number,
             required:true},
     discipline:{type:String,
-                required:true,
-            default:'BTech'},
+                required:true},
     department: {type:String,
                 required:true},
     universityRollNo: {type:Number,
                 required:false},
+    year:{type:String},
     imgUrl:{type:String,
             default:'https://www.w3schools.com/w3images/avatar2.png'}
 
