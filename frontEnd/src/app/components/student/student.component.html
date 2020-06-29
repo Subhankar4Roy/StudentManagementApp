@@ -1,8 +1,8 @@
 <mat-list>
-    <mat-list-item (click)="openDialogToView()" class="example-ripple-container mat-elevation-z0"
+    <mat-list-item (click)="openDialogToView(student)" class="example-ripple-container mat-elevation-z0"
     matRipple *ngFor="let student of students">
     
-    <img matListAvatar src="{{student.imgUrl}}" alt="{{student.name}}">
+    <img matListAvatar  src="{{student.imgUrl}}" alt="{{student.name}}">
     <div mat-line>{{student.name | uppercase}} </div>
       <div mat-line> {{student.email | lowercase}} </div>
       <mat-divider></mat-divider>

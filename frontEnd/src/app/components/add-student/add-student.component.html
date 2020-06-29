@@ -1,4 +1,3 @@
-
     <mat-form-field appearance="outline">
         <mat-label>Student Name</mat-label>
         <input [(ngModel)]="addStudentData.name" name="name" matInput placeholder="Subhankar Roy">
@@ -32,19 +31,55 @@
       <br>
 
       <mat-form-field appearance="outline">
-        <mat-label>Discipline</mat-label>
-        <input [(ngModel)]="addStudentData.discipline" name="discipline" matInput placeholder="Btech/MTech/MCA">
+        <mat-label> Discipline </mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1">BTech</mat-option>
+          <mat-option value="2">MTech</mat-option>
+          <mat-option value="3">MCA</mat-option>
+        </mat-select>
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
+      
 
+      <!-- <mat-form-field >
+        <mat-label></mat-label>
+        <input [(ngModel)]="addStudentData.discipline" name="discipline" matInput placeholder="Btech/MTech/MCA">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field> -->
+      <mat-form-field appearance="outline">
+        <mat-label> Department </mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1">CSE</mat-option>
+          <mat-option value="2">IT</mat-option>
+          <mat-option value="3">ME</mat-option>
+          <mat-option value="4">EE</mat-option>
+          <mat-option value="5">ECE</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+<!--       
       <mat-form-field appearance="outline">
         <mat-label>Department</mat-label>
         <input [(ngModel)]="addStudentData.department" name="department" matInput placeholder="CSE/IT/ME/EE/MCA">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint></mat-hint>
-      </mat-form-field>
+      </mat-form-field> -->
       <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Year </mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field>
         
       <mat-form-field appearance="outline">
         <mat-label>University Roll Number</mat-label>

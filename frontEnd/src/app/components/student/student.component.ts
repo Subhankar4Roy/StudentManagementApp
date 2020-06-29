@@ -12,11 +12,13 @@ import { StudentDetailsComponent } from '../student-details/student-details.comp
 })
 export class StudentComponent implements OnInit {
 
-  students = []
+  students = [];
+  selectedStudent;
+  showStudents;
 
   constructor(private studentsService : StudentsService,public dialog: MatDialog) { }
   
-
+ 
   ngOnInit(): void {
     this.studentsService.getStudents()
         .subscribe(
@@ -24,12 +26,22 @@ export class StudentComponent implements OnInit {
           err => console.log(err)
         )
   }
+//  onStudentClicked(studentData){
+//    this.selectedStudent = studentData
+//  }
+
   openDialog() {
     this.dialog.open(AddStudentComponent);
   }
-  openDialogToView(){
-    this.dialog.open(StudentDetailsComponent);
 
+  openDialogToView(student){
+   let dialogRef = this.dialog.open(StudentDetailsComponent, {
+     width:'500px',
+     data:student
+   });
+   dialogRef.afterClosed().subscribe(result => {
+     console.log(`Dialog result ${result}`)
+   })
   }
 
 }
