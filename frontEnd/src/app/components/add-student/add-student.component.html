@@ -1,10 +1,12 @@
-    <mat-form-field appearance="outline">
+<h2 mat-dialog-title>Add new Student</h2>
+<mat-dialog-content>
+    <div class="namePhone">
+      <mat-form-field appearance="outline">
         <mat-label>Student Name</mat-label>
         <input [(ngModel)]="addStudentData.name" name="name" matInput placeholder="Subhankar Roy">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
-  
   
       <mat-form-field appearance="outline">
         <mat-label>Phone Number</mat-label>
@@ -12,9 +14,8 @@
         <mat-icon matSuffix>call</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
-      <br>
-  
-  
+    </div>
+  <div class="emailD">
       <mat-form-field appearance="outline">
         <mat-label>Email Address</mat-label>
         <input [(ngModel)]="addStudentData.email" name="email" matInput placeholder="example@gmail.com">
@@ -23,60 +24,37 @@
       </mat-form-field>
   
       <mat-form-field appearance="outline">
-        <mat-label>Passing Year</mat-label>
-        <input [(ngModel)]="addStudentData.passingYear" name="passingYear" matInput placeholder="2022">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint></mat-hint>
-      </mat-form-field>
-      <br>
-
-      <mat-form-field appearance="outline">
         <mat-label> Discipline </mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">BTech</mat-option>
-          <mat-option value="2">MTech</mat-option>
-          <mat-option value="3">MCA</mat-option>
+        <mat-select [(ngModel)]="addStudentData.discipline" disableRipple>
+          <mat-option *ngFor="let d of disciplines" value="{{d.name}}">{{d.name}}</mat-option>
         </mat-select>
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
-      
-
-      <!-- <mat-form-field >
-        <mat-label></mat-label>
-        <input [(ngModel)]="addStudentData.discipline" name="discipline" matInput placeholder="Btech/MTech/MCA">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint></mat-hint>
-      </mat-form-field> -->
+    </div>
+    <div class="dY">
       <mat-form-field appearance="outline">
         <mat-label> Department </mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">CSE</mat-option>
-          <mat-option value="2">IT</mat-option>
-          <mat-option value="3">ME</mat-option>
-          <mat-option value="4">EE</mat-option>
-          <mat-option value="5">ECE</mat-option>
+        <mat-select [(ngModel)]="addStudentData.department" disableRipple>
+          <mat-option *ngFor="let d of departments" value="{{d.name}}">{{d.name}}</mat-option>
         </mat-select>
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
-<!--       
-      <mat-form-field appearance="outline">
-        <mat-label>Department</mat-label>
-        <input [(ngModel)]="addStudentData.department" name="department" matInput placeholder="CSE/IT/ME/EE/MCA">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint></mat-hint>
-      </mat-form-field> -->
-      <br>
 
       <mat-form-field appearance="outline">
         <mat-label> Year </mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">1</mat-option>
-          <mat-option value="2">2</mat-option>
-          <mat-option value="3">3</mat-option>
-          <mat-option value="4">4</mat-option>
+        <mat-select [(ngModel)]="addStudentData.year" disableRipple>
+          <mat-option *ngFor="let y of years" value="{{y.name}}">{{y.name}}</mat-option>
         </mat-select>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+<div class="pYuRn">
+      <mat-form-field appearance="outline">
+        <mat-label>Passing Year</mat-label>
+        <input [(ngModel)]="addStudentData.passingYear" name="passingYear" matInput placeholder="2022">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
@@ -87,7 +65,10 @@
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
+    </div>
       <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
         <button mat-button (click)=addStudent() [mat-dialog-close]="true" cdkFocusInitial>Save</button>
       </mat-dialog-actions>
+
+</mat-dialog-content>

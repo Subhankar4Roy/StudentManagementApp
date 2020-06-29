@@ -2,12 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.mat-toolbar.mat-primary {
+.toolbar{
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 2;
   }
-  
+.content{
+  margin-top: 62px;
+}
 .spacer{
       flex:1 1 auto;
   }

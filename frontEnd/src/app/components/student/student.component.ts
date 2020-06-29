@@ -26,12 +26,10 @@ export class StudentComponent implements OnInit {
           err => console.log(err)
         )
   }
-//  onStudentClicked(studentData){
-//    this.selectedStudent = studentData
-//  }
-
   openDialog() {
-    this.dialog.open(AddStudentComponent);
+    this.dialog.open(AddStudentComponent,{
+      // width:'620px'
+    });
   }
 
   openDialogToView(student){
