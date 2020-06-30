@@ -17,7 +17,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -40,7 +40,8 @@ const material = [
   MatGridListModule,
   MatCheckboxModule,
   MatExpansionModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatSnackBarModule
 
 ]
 
