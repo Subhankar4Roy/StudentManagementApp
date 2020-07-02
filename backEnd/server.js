@@ -13,5 +13,8 @@ app.use(bodyparser.json());
 
 
 const controller = require("./routes/api");
+const userController = require("./routes/entry");
 app.use("/" , controller);
+app.use("/api" , userController);
+
 app.listen("3000", ()=> {console.log("server running"); });

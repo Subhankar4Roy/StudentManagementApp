@@ -8,9 +8,12 @@
     <button mat-icon-button>
       <mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon>
     </button>
-    <button mat-icon-button>
-      <mat-icon>more_vert</mat-icon>
-    </button>
+  
+    <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="_authService.logoutUser()">logout</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
   </mat-toolbar>
   <mat-drawer #drawer class="sidenav" mode="over">
     <!-- Card Starts -->

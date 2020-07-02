@@ -18,6 +18,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StudentComponent } from './components/student/student.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { StudentDetailsComponent } from './components/student-details/student-de
     StudentComponent,
     AddStudentComponent,
     StudentDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegisterComponent,
+    LoginComponent,
+    HomeComponent
   ],
   entryComponents:[AddStudentComponent, StudentDetailsComponent],
   imports: [

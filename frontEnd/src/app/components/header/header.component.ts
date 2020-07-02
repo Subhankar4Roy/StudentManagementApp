@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service'
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   panelOpenState = false;
-  constructor() { }
+  constructor(public _authService: AuthService) { }
 
   ngOnInit(): void {
   }
