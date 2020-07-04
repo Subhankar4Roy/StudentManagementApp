@@ -3,7 +3,9 @@
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>My App</span>
+    <span *ngIf="routes.route=='/dashboard'">Dashboard</span>
+    <span *ngIf="routes.route=='/students'">Student List</span>
+    <span *ngIf="routes.route=='/home'">Home</span>
     <span class="spacer"></span>
     <button mat-icon-button>
       <mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon>
@@ -20,11 +22,18 @@
 
     <!-- Card Ends -->
     <mat-nav-list>
-      <a mat-list-item href="#"><mat-icon>account_circle</mat-icon> User Profile</a>
-      <a mat-list-item href="dashboard"><mat-icon>view_quilt</mat-icon> Dashboard</a>
-      <a mat-list-item href="students"><mat-icon>face</mat-icon> Students</a>
-      <a mat-list-item href="#"><mat-icon>build</mat-icon> Setting</a>
-      <a mat-list-item href="#"><mat-icon>help</mat-icon> Help</a>
+      
+      <mat-card style="text-align: center;">
+        <img mat-card-avatar src="https://bit.ly/3gqNFQY" alt="SR">
+        <h3>Subhankar Roy</h3>
+        <p>subhankarroylive@gmail.com</p>
+        <button mat-stroked-button>Manage your Account</button>
+      </mat-card>
+      <!-- <mat-divider></mat-divider> -->
+      <a mat-list-item href="dashboard"><mat-icon matListIcon>view_quilt</mat-icon><div mat-line>Dashboard</div></a>
+      <a mat-list-item href="students"><mat-icon matListIcon>group</mat-icon><div mat-line>Students</div></a>
+      <a mat-list-item href="#"><mat-icon matListIcon>build</mat-icon><div mat-line>Setting</div></a>
+      <a mat-list-item href="#"><mat-icon matListIcon>help</mat-icon><div mat-line>Help</div></a>
     </mat-nav-list>
     
   </mat-drawer>

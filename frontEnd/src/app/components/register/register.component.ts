@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth.service'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  hide = true;
   registerUserData =<any>{};
   constructor(private _authService : AuthService) { }
 

@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialsModule  } from "./materials/materials.module";
 import { FormsModule } from '@angular/forms'
-
+import { RouterModule, Router, RouterEvent, NavigationEnd } from '@angular/router';
 
 import { StudentsService} from "./services/students.service";
+import { RoutesService} from "./services/routes.service";
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -45,7 +46,20 @@ import { HomeComponent } from './components/home/home.component';
     LayoutModule,
     MaterialsModule
   ],
-  providers: [StudentsService],
+  providers: [StudentsService,RoutesService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(
+    private readonly router: Router,
+    private routes: RoutesService
+  ) {
+    router.events
+      .subscribe((event: RouterEvent) => {
+        if (event instanceof NavigationEnd) {
+          this.routes.setRoute(event.url);
+        }
+      });
+  }
+}
+

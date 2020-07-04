@@ -19,6 +19,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 
@@ -44,7 +46,9 @@ const material = [
   MatExpansionModule,
   MatBadgeModule,
   MatSnackBarModule,
-  MatMenuModule
+  MatMenuModule,
+  MatTabsModule
+  
 
 ]
 

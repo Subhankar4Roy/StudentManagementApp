@@ -10,15 +10,23 @@
             <mat-hint></mat-hint>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input [(ngModel)]="registerUserData.password" name="password" matInput placeholder="8 Charecters">
-            <mat-icon matSuffix>vpn_key</mat-icon>
-            <mat-hint></mat-hint>
+            <mat-label>Enter your password</mat-label>
+            <input [(ngModel)]="registerUserData.password" name="password" matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm your password</mat-label>
+            <input  matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
           </mat-form-field>
     </mat-card-content>
     <mat-card-actions align='end'>
-      <button mat-button>CANCEL</button>
-      <button mat-button (click)="registerUser()">REGISTER</button>
+      <a mat-button href="/login">LOGIN</a>
+     <button mat-button (click)="registerUser()">REGISTER</button>
     </mat-card-actions>
   </mat-card>
   
