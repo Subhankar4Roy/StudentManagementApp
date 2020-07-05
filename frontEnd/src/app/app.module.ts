@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialsModule  } from "./materials/materials.module";
-import { FormsModule } from '@angular/forms'
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms'
 import { RouterModule, Router, RouterEvent, NavigationEnd } from '@angular/router';
 
 import { StudentsService} from "./services/students.service";
@@ -43,6 +43,7 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     LayoutModule,
     MaterialsModule
   ],

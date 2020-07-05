@@ -36,6 +36,7 @@ export class StudentDetailsComponent implements OnInit {
           duration:5000,
           verticalPosition:'top'
         });
+        //this.router.navigate(['/students'])
       });
     }
   }
