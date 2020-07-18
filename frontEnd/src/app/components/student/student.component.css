@@ -1,3 +1,7 @@
+.view-type{
+    float: right;
+    margin: 15px;
+}
 .fab {
     position: fixed;
     z-index: 1;

@@ -36,7 +36,23 @@ export class AddStudentComponent implements OnInit {
 
 
 
-  addStudentData =<any>{}
+  addStudentData =<any>{};
+  selectedFile : File = null;
+  name = '';
+  email = '';
+  // phone = '';
+  // discipline;
+  // department = '';
+  // // year = '';
+  // passingYear = '';
+  // universityRollNo= '';
+  
+
+
+  onStudentImageSelected(event){
+    //console.log(event);
+    this.selectedFile = <File>event.target.files[0];
+  }
 
   constructor(private studentService : StudentsService,private router:Router) { }
 
@@ -44,7 +60,17 @@ export class AddStudentComponent implements OnInit {
   }
 
   addStudent(){
-    this.studentService.addStudent(this.addStudentData)
+    const fromData = new FormData();
+    fromData.append('name', this.addStudentData.name);
+    fromData.append('email', this.addStudentData.email);
+    // fromData.append('phone', this.addStudentData.phone);
+    // fromData.append('discipline', this.addStudentData.discipline);
+    // fromData.append('department', this.addStudentData.department);
+    // fromData.append('year', this.addStudentData.year);
+    // fromData.append('passingYear', this.addStudentData.passingYear);
+    // fromData.append('universityRollNo', this.addStudentData.universityRollNo);
+    fromData.append('studentImage', this.selectedFile, this.selectedFile.name);
+    this.studentService.addStudent(fromData)
         .subscribe(
           res => {
             console.log(res)

@@ -5,6 +5,7 @@ import { MaterialsModule  } from "./materials/materials.module";
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms'
 import { RouterModule, Router, RouterEvent, NavigationEnd } from '@angular/router';
 
+import{ AuthService } from './services/auth.service';
 import { StudentsService} from "./services/students.service";
 import { RoutesService} from "./services/routes.service";
 
@@ -22,6 +23,7 @@ import { StudentDetailsComponent } from './components/student-details/student-de
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { from } from 'rxjs';
 
 
 @NgModule({
@@ -47,7 +49,7 @@ import { HomeComponent } from './components/home/home.component';
     LayoutModule,
     MaterialsModule
   ],
-  providers: [StudentsService,RoutesService],
+  providers: [AuthService,StudentsService,RoutesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

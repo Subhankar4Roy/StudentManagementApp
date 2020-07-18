@@ -1,14 +1,39 @@
-<mat-list>
-    <mat-list-item (click)="openDialogToView(student)" class="example-ripple-container mat-elevation-z0"
-    matRipple *ngFor="let student of students">
-    
-    <img matListAvatar  src="{{student.imgUrl}}" alt="{{student.name}}">
-    <div mat-line>{{student.name | uppercase}} </div>
-      <div mat-line> {{student.email | lowercase}} </div>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-</mat-list>
+<span class="view-type">
+  <button *ngIf="!listView" (click)="listView=!listView">
+    <mat-icon>view_list</mat-icon>
+  </button>
+  <button *ngIf="listView" (click)="listView=!listView">
+    <mat-icon>view_module</mat-icon>
+  </button>
+</span>
 
+<div>
+  <div class="list-view" *ngIf="listView">
+    <mat-selection-list [multiple]="false">
+        <mat-list-option (click)="openDialogToView(student)" class="example-ripple-container mat-elevation-z0"
+        matRipple *ngFor="let student of students">
+        <img matListAvatar  src="http://localhost:3000/{{student.studentImage}}" alt="{{student.name}}">
+        <div mat-line>{{student.name | titlecase}} </div>
+        <div mat-line> {{student.discipline}} / {{student.department}} / {{student.year}} year </div>
+        <mat-divider></mat-divider>
+        </mat-list-option>
+    </mat-selection-list>
+  </div>
+
+  <div class="grid-view" *ngIf="!listView">
+      <mat-card (click)="openDialogToView(student)" matRipple *ngFor="let student of students">
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              <img matListAvatar  src="http://localhost:3000/{{student.studentImage}}" alt="{{student.name}}">
+              <div mat-line><strong>{{student.name}}</strong></div>
+              <div mat-line> {{student.discipline}} / {{student.department}} / {{student.year}} year </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+  </div>
+</div>
 <div class="fab">
   <button mat-fab (click)="openDialog()" color="accent">
     <mat-icon>person_add</mat-icon>

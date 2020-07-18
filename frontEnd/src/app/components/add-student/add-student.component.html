@@ -1,5 +1,6 @@
 <h2 mat-dialog-title>Add new Student</h2>
 <mat-dialog-content>
+  <input type="file" (change)="onStudentImageSelected($event)">
     <div class="namePhone">
       <mat-form-field appearance="outline" >
         <mat-label>Student Name</mat-label>

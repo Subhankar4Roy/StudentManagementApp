@@ -11,7 +11,7 @@ import { StudentDetailsComponent } from '../student-details/student-details.comp
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-
+  listView = true;
   students = [];
   selectedStudent;
   showStudents;

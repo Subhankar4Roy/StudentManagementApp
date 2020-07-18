@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
     public routes: RoutesService) { }
 
   ngOnInit(): void {
+    this._authService.getLoginUser()
   }
   isActive() {
     this.href = this.router.url;
