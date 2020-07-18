@@ -1,26 +1,32 @@
 const mongoose= require("mongoose");
 var studentschema = new mongoose.Schema({
 
-        studentImage:{type:String,
+        name: {
+                type:String,
                 required:false},
-        name:{type:String,
+        email: {
+                type:String,
                 required:false},
-        email:{type:String,
+        phone: {
+                type:Number,
                 required:false},
-        phone:{type:Number,
+        discipline: {
+                type:String,
                 required:false},
-        passingYear:{type:Number,
+        department: {
+                type:String,
                 required:false},
-        discipline:{type:String,
+        year: {
+                type:String,
                 required:false},
-        department: {type:String,
+        universityRollNo: {
+                type:Number,
                 required:false},
-        universityRollNo: {type:Number,
+        passingYear:{
+                type:Number,
                 required:false},
-        year:{type:String},
-        imgUrl:{type:String,
-                default:'https://www.w3schools.com/w3images/avatar2.png'}
-
-
+        studentImage:{
+                type:String,
+                required:false},
 });
-const studentitem = module.exports = mongoose.model('student', studentschema);
+const Student = module.exports = mongoose.model('student', studentschema);

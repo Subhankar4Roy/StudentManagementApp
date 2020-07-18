@@ -1,6 +1,6 @@
 const express = require("express");
 const  mongoose = require("mongoose");
-
+const path=require("path");
 const Studentmodel = mongoose.model("student");
 const Student = require("../datamodel");
 const router = express.Router();
@@ -46,23 +46,20 @@ router.post('/', upload.single('studentImage'), (req,res)=>{
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     email: req.body.email,
-    studentImage: req.file.path 
+    phone: req.body.phone,
+    discipline: req.body.discipline,
+    department: req.body.department,
+    year: req.body.year,
+    universityRollNo: req.body.universityRollNo,
+    passingYear: req.body.passingYear,
+    studentImage: req.file.path
   });
   student
     .save()
     .then(result => {
       console.log(result);
       res.status(201).json({
-        message: "Created student successfully",
-        createdStudent: {
-            name: result.name,
-            email: result.email,
-            _id: result._id,
-            request: {
-                type: 'GET',
-                url: "http://localhost:3000/students/" + result._id
-            }
-        }
+        message: "Created student successfully"
       });
     })
     .catch(err => {
