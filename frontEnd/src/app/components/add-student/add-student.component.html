@@ -1,6 +1,10 @@
-<h2 mat-dialog-title>Add new Student</h2>
-<mat-dialog-content>
-  <input type="file" (change)="onStudentImageSelected($event)">
+<!-- <h2 mat-dialog-title>Add Student</h2> -->
+<!-- <mat-dialog-content> -->
+<div class="add-student">
+  <div class="img">
+    <img src="https://bit.ly/3eaOXOp" alt="">
+    <input type="file" (change)="onStudentImageSelected($event)">
+  </div>
     <div class="namePhone">
       <mat-form-field appearance="outline" >
         <mat-label>Student Name</mat-label>
@@ -62,14 +66,14 @@
         
       <mat-form-field appearance="outline">
         <mat-label>University Roll Number</mat-label>
-        <input [(ngModel)]="addStudentData.universityRollNumber" name="universityRollNumber" matInput placeholder="10200219059">
+        <input [(ngModel)]="addStudentData.universityRollNo" name="universityRollNo" matInput placeholder="10200219059">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
     </div>
-      <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close>Cancel</button>
+      <!-- <mat-dialog-actions align="end"> -->
+        <a mat-button href="/students" >Cancel</a>
         <button mat-button (click)=addStudent() [mat-dialog-close]="true" >Save</button>
-      </mat-dialog-actions>
-
-</mat-dialog-content>
+      <!-- </mat-dialog-actions> -->
+</div>
+<!-- </mat-dialog-content> -->

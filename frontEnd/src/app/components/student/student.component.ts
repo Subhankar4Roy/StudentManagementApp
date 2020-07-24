@@ -20,17 +20,29 @@ export class StudentComponent implements OnInit {
   
  
   ngOnInit(): void {
+    // this.studentsService.getStudents()
+    //     .subscribe(
+    //       res => this.students =res,
+    //       err => console.log(err)
+    //     )
+    this.studentsService.refreshneeded$
+     .subscribe(()=> {this.getallStudents();}
+     ); 
+    this.getallStudents();
+  }
+  getallStudents() {
     this.studentsService.getStudents()
-        .subscribe(
-          res => this.students =res,
-          err => console.log(err)
-        )
+      .subscribe(
+        res => this.students = res,
+        err => console.log(err)
+    
+      )
   }
-  openDialog() {
-    this.dialog.open(AddStudentComponent,{
-      // width:'620px'
-    });
-  }
+  // openDialog() {
+  //   this.dialog.open(AddStudentComponent,{
+  //     // width:'620px'
+  //   });
+  // }
 
   openDialogToView(student){
    let dialogRef = this.dialog.open(StudentDetailsComponent, {

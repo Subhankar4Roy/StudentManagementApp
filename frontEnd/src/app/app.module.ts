@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialsModule  } from "./materials/materials.module";
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms'
 import { RouterModule, Router, RouterEvent, NavigationEnd } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import{ AuthService } from './services/auth.service';
 import { StudentsService} from "./services/students.service";
@@ -24,6 +25,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { from } from 'rxjs';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -38,7 +40,7 @@ import { from } from 'rxjs';
     LoginComponent,
     HomeComponent
   ],
-  entryComponents:[AddStudentComponent, StudentDetailsComponent],
+  entryComponents:[StudentDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,7 +49,9 @@ import { from } from 'rxjs';
     FormsModule,
     ReactiveFormsModule,
     LayoutModule,
-    MaterialsModule
+    MaterialsModule,
+    FlexLayoutModule,
+    HighchartsChartModule
   ],
   providers: [AuthService,StudentsService,RoutesService],
   bootstrap: [AppComponent]

@@ -15,7 +15,7 @@
         <img matListAvatar  src="http://localhost:3000/{{student.studentImage}}" alt="{{student.name}}">
         <div mat-line>{{student.name | titlecase}} </div>
         <div mat-line> {{student.discipline}} / {{student.department}} / {{student.year}} year </div>
-        <mat-divider></mat-divider>
+        <mat-divider [inset]="true"></mat-divider>
         </mat-list-option>
     </mat-selection-list>
   </div>
@@ -35,8 +35,9 @@
   </div>
 </div>
 <div class="fab">
-  <button mat-fab (click)="openDialog()" color="accent">
+  <!-- <button mat-fab (click)="openDialog()" color="accent"> -->
+    <a mat-fab href="/add-student" color="accent">
     <mat-icon>person_add</mat-icon>
-  </button>
+  </a>
 </div>
   

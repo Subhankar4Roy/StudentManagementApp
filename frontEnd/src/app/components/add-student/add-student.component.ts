@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../services/students.service';
 import { Router } from '@angular/router'
 import { from } from 'rxjs';
+import { ArrayType } from '@angular/compiler';
 
 @Component({
   selector: 'app-add-student',
@@ -38,12 +39,12 @@ export class AddStudentComponent implements OnInit {
 
   addStudentData =<any>{};
   selectedFile : File = null;
-  name = '';
-  email = '';
+  // name = '';
+  // email = '';
   // phone = '';
-  // discipline;
-  // department = '';
-  // // year = '';
+  // discipline ;
+  // department = [];
+  // year = [];
   // passingYear = '';
   // universityRollNo= '';
   
@@ -63,12 +64,12 @@ export class AddStudentComponent implements OnInit {
     const fromData = new FormData();
     fromData.append('name', this.addStudentData.name);
     fromData.append('email', this.addStudentData.email);
-    // fromData.append('phone', this.addStudentData.phone);
-    // fromData.append('discipline', this.addStudentData.discipline);
-    // fromData.append('department', this.addStudentData.department);
-    // fromData.append('year', this.addStudentData.year);
-    // fromData.append('passingYear', this.addStudentData.passingYear);
-    // fromData.append('universityRollNo', this.addStudentData.universityRollNo);
+    fromData.append('phone', this.addStudentData.phone);
+    fromData.append('discipline', this.addStudentData.discipline);
+    fromData.append('department', this.addStudentData.department);
+    fromData.append('year', this.addStudentData.year);
+    fromData.append('passingYear', this.addStudentData.passingYear);
+    fromData.append('universityRollNo', this.addStudentData.universityRollNo);
     fromData.append('studentImage', this.selectedFile, this.selectedFile.name);
     this.studentService.addStudent(fromData)
         .subscribe(

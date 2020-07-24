@@ -45,9 +45,6 @@ router.post('/login', (req, res) => {
                 let token = jwt.sign(payload, 'secretKey')
                 res.status(200).send({token,data: {  user: user.toJSON() } })
                 
-                
-                
-                
             }
         }
     })

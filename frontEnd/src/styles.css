@@ -17,6 +17,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   mat-drawer-container {
     height: 100vh;
 }
-mat-form-field.mat-form-field {
-  width: 100%;
-}

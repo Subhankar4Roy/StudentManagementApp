@@ -32,3 +32,10 @@ mat-card.mat-card.mat-focus-indicator p {
 button.mat-focus-indicator.mat-stroked-button.mat-button-base {
   border-radius: 20px;
 }
+
+span.ng-star-inserted {
+  margin-left: 8px;
+}
+button.mat-focus-indicator.mat-icon-button.mat-button-base {
+  margin: 3px;
+}

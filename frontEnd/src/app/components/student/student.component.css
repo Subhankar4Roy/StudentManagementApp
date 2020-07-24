@@ -1,6 +1,7 @@
 .view-type{
     float: right;
     margin: 15px;
+    width:fit-content;
 }
 .fab {
     position: fixed;

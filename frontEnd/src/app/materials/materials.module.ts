@@ -18,8 +18,11 @@ import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -47,8 +50,10 @@ const material = [
   MatBadgeModule,
   MatSnackBarModule,
   MatMenuModule,
-  MatTabsModule
-  
+  MatTabsModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatTooltipModule
 
 ]
 
