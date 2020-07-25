@@ -49,7 +49,9 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Confirm your password</mat-label>
-        <input  
+        <input 
+        [(ngModel)]= "registerUserData.password2" 
+         name="password2"
             matInput [type]="hide ? 'password' : 'text'">
         <button 
             mat-icon-button matSuffix (click)="hide = !hide" 

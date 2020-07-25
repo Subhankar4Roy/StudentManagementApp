@@ -30,12 +30,17 @@ export class RegisterComponent implements OnInit {
     private _router: Router) { }
 
   registerUser(){
+    if(this.registerUserData.password!==this.registerUserData.password2)
+     {console.log("Confirm password correctly");}
+
+     else {
     this._authService.registerUser(this.registerUserData)
                       .subscribe(
                         res => {console.log(res), 
                           this._router.navigate(['/login'])},
                         err => console.log(err)
                       )
+                        }
   }
 
   ngOnInit(): void {
