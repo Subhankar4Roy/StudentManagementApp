@@ -83,13 +83,22 @@ router.post('/', upload.single('studentImage'), (req,res)=>{
       $set:{ name:req.body.name,
              email:req.body.email,
              phone:req.body.phone,
-             dept:req.body.dept,
-         
+             discipline:req.body.discipline,
+             department:req.body.department,
+             year:req.body.year,
+             passingYear:req.body.passingYear,
+             universityRollNo:req.body.universityRollNo,
+             studentImage: req.file.path
            }
-    }, (err, docs)=>{if(!err) {res.json(docs);} else{res.json(err);}}
+    }, (err, docs)=>
+    {
+      if(!err) 
+      {res.json(docs);} 
+      else
+      {res.json(err);}
+    }
 
-    )
-  }
+    )}
   
   
   
@@ -110,5 +119,14 @@ router.delete('/:id', (req, res, next)=>{
        }
     );
   });
+
+  router.get('/:id', (req,res)=>{
+    Studentmodel.findOne({_id:req.params.id},(err, docs)=>
+    {if(err)
+      console.log(err)
+      else{res.json(docs)}
+     }
+      )}
+    );
 
 module.exports = router;
