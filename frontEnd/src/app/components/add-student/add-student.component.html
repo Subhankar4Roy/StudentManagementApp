@@ -1,15 +1,22 @@
 <!-- <h2 mat-dialog-title>Add Student</h2> -->
 <!-- <mat-dialog-content> -->
+  
 <div class="add-student">
-  <div class="img">
-    <img src="https://bit.ly/3eaOXOp" alt="">
-    <input type="file" (change)="onStudentImageSelected($event)">
+  <div class="img profile">
+    <img  *ngIf="!url" src="http://localhost:3000/uploads/boy.png">
+    <img [src]="url" alt="">
+    <div class="input">
+      <input type="file" (change)="onStudentImageSelected($event)">
+    </div>
+    <div class="icon">
+       <mat-icon>photo_camera</mat-icon>      
+    </div>
   </div>
     <div class="namePhone">
       <mat-form-field appearance="outline" >
         <mat-label>Student Name</mat-label>
         <input cdkFocusInitial [(ngModel)]="addStudentData.name" name="name" matInput placeholder="Subhankar Roy">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix>account_box</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
   
@@ -33,7 +40,7 @@
         <mat-select [(ngModel)]="addStudentData.discipline" disableRipple>
           <mat-option *ngFor="let d of disciplines" value="{{d.name}}">{{d.name}}</mat-option>
         </mat-select>
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix>label</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
     </div>
@@ -56,11 +63,11 @@
         <mat-hint></mat-hint>
       </mat-form-field>
     </div>
-<div class="pYuRn">
+    <div class="pYuRn">
       <mat-form-field appearance="outline">
         <mat-label>Passing Year</mat-label>
         <input [(ngModel)]="addStudentData.passingYear" name="passingYear" matInput placeholder="2022">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix>calendar_today</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
         
@@ -72,8 +79,11 @@
       </mat-form-field>
     </div>
       <!-- <mat-dialog-actions align="end"> -->
+  
         <a mat-button href="/students" >Cancel</a>
         <button mat-button (click)=addStudent() [mat-dialog-close]="true" >Save</button>
+
       <!-- </mat-dialog-actions> -->
 </div>
+
 <!-- </mat-dialog-content> -->

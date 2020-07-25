@@ -32,4 +32,12 @@ export class StudentsService {
   deleteStudent(id){
     return this.http.delete<any>(this.studentsUrl+id)
   }
+  
+  getCurrentStudent(id){
+    return this.http.get<any>(this.studentsUrl+id)
+  }
+
+  updateStudent(id,data){
+    return this.http.put<any>(this.studentsUrl+id,data)
+  }
 }

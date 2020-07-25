@@ -26,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { from } from 'rxjs';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { EditStudentComponent } from './components/edit-student/edit-student.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     HeaderComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    EditStudentComponent
   ],
   entryComponents:[StudentDetailsComponent],
   imports: [

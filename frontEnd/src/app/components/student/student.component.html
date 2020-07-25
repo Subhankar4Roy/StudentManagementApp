@@ -20,7 +20,7 @@
     </mat-selection-list>
   </div>
 
-  <div class="grid-view" *ngIf="!listView">
+  <!-- <div class="grid-view" *ngIf="!listView">
       <mat-card (click)="openDialogToView(student)" matRipple *ngFor="let student of students">
         <mat-card-content>
           <mat-list>
@@ -32,7 +32,23 @@
           </mat-list>
         </mat-card-content>
       </mat-card>
-  </div>
+  </div> -->
+  <div fxLayout="row wrap" fxLayoutGap="10px grid" 
+  class="contentGrid" *ngIf="!listView">
+     <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let student of students">
+       <mat-card class="card" (click)="openDialogToView(student)">
+         <mat-card-content>
+           <mat-list>
+             <mat-list-item>
+               <img matListAvatar src="http://localhost:3000/{{student.studentImage}}" alt="img of {{student.name}}">
+               <div mat-line>{{student.name | titlecase}} </div>
+               <div mat-line> {{student.discipline}} / {{student.department}} / {{student.year}} year </div>
+             </mat-list-item>
+           </mat-list>
+         </mat-card-content>
+       </mat-card>
+     </div>
+   </div>
 </div>
 <div class="fab">
   <!-- <button mat-fab (click)="openDialog()" color="accent"> -->

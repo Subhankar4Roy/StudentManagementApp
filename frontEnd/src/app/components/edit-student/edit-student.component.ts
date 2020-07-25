@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentsService } from '../../services/students.service';
-import { Router } from '@angular/router'
+import { StudentsService } from 'src/app/services/students.service';
+import { Router,ActivatedRoute } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+
 @Component({
-  selector: 'app-add-student',
-  templateUrl: './add-student.component.html',
-  styleUrls: ['./add-student.component.css']
+  selector: 'app-edit-student',
+  templateUrl: './edit-student.component.html',
+  styleUrls: ['./edit-student.component.css']
 })
-export class AddStudentComponent implements OnInit {
+export class EditStudentComponent implements OnInit {
 
   disciplines = [
     {id: 1, name: "BTech"},
@@ -34,23 +36,8 @@ export class AddStudentComponent implements OnInit {
 
 
 
-  addStudentData =<any>{};
+  editStudentData =<any>{};
   selectedFile : File = null;
-  // name = '';
-  // email = '';
-  // phone = '';
-  // discipline ;
-  // department = [];
-  // year = [];
-  // passingYear = '';
-  // universityRollNo= '';
-  
-
-
-  // onStudentImageSelected(event){
-  //   //console.log(event);
-  //   this.selectedFile = <File>event.target.files[0];
-  // }
   url;
   onStudentImageSelected(event) { // called each time file input changes
       if (event.target.files && event.target.files[0]) {
@@ -64,23 +51,33 @@ export class AddStudentComponent implements OnInit {
         this.selectedFile = <File>event.target.files[0];
       }
   }
-  constructor(private studentService : StudentsService,private router:Router) { }
+  constructor(
+    private studentService : StudentsService,
+    private router:Router, 
+    private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    //console.log(this.activatedRoute.snapshot.params.id)
+    this.studentService.getCurrentStudent(this.activatedRoute.snapshot.params.id)
+    .subscribe(Data => {
+      this.editStudentData = Data;
+      console.log(Data)
+    })
+    
   }
 
-  addStudent(){
+  updateStudent(id){
     const fromData = new FormData();
-    fromData.append('name', this.addStudentData.name);
-    fromData.append('email', this.addStudentData.email);
-    fromData.append('phone', this.addStudentData.phone);
-    fromData.append('discipline', this.addStudentData.discipline);
-    fromData.append('department', this.addStudentData.department);
-    fromData.append('year', this.addStudentData.year);
-    fromData.append('passingYear', this.addStudentData.passingYear);
-    fromData.append('universityRollNo', this.addStudentData.universityRollNo);
+    fromData.append('name', this.editStudentData.name);
+    fromData.append('email', this.editStudentData.email);
+    fromData.append('phone', this.editStudentData.phone);
+    fromData.append('discipline', this.editStudentData.discipline);
+    fromData.append('department', this.editStudentData.department);
+    fromData.append('year', this.editStudentData.year);
+    fromData.append('passingYear', this.editStudentData.passingYear);
+    fromData.append('universityRollNo', this.editStudentData.universityRollNo);
     fromData.append('studentImage', this.selectedFile, this.selectedFile.name);
-    this.studentService.addStudent(fromData)
+    this.studentService.updateStudent(id,fromData)
         .subscribe(
           res => {
             console.log(res)
