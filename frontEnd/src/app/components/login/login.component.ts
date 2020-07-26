@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
           console.log(res)
           localStorage.setItem('token', res.token)
           localStorage.setItem('emaildetails', res.data.user.email)
+          localStorage.setItem('namedetails', res.data.user.name)
           this._router.navigate(['/students'])
         },
         err => console.log(err)

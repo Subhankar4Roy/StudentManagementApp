@@ -1,10 +1,10 @@
 <mat-card class="card">
     <mat-card-header>
-      <mat-card-title>Login User</mat-card-title>
+      <mat-card-title>LOGIN</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <mat-form-field appearance="outline">
-            <mat-label>Email Address</mat-label>
+            <mat-label>Email address</mat-label>
             <input [(ngModel)]="loginUserData.email" name="email" matInput placeholder="example@gmail.com">
             <mat-icon matSuffix>email</mat-icon>
             <mat-hint></mat-hint>
@@ -26,10 +26,13 @@
 
 
     </mat-card-content>
-    <mat-card-actions align='end'>
-      <a mat-button href="/register">Create account</a>
-      <button mat-button (click)="loginUser()">LOGIN</button>
+    <mat-card-actions align='middle'>
+      <button mat-raised-button color="primary" mat-button (click)="loginUser()">LOGIN</button>
     </mat-card-actions>
+    <div class="anc">
+    <label>Have an account?</label><br>
+    <a mat-button href="/register">REGISTER NOW</a>
+  </div>
     
 
   </mat-card>

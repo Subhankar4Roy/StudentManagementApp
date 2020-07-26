@@ -13,7 +13,7 @@ import { StudentsService } from 'src/app/services/students.service';
 })
 export class HeaderComponent implements OnInit {
   href: string;
-  name:string="";
+  name="";
   email="";
   panelOpenState = false;
   constructor(public _authService: AuthService,
@@ -35,7 +35,5 @@ export class HeaderComponent implements OnInit {
   getToken() {
     // localStorage.removeItem('details')
     this.email = localStorage.getItem('emaildetails')
-    
-    // this.name = localStorage.getItem('namedetails')
-  }
+    this.name = localStorage.getItem('namedetails')  }
 }
