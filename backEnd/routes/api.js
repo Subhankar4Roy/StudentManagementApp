@@ -88,7 +88,7 @@ router.post('/', upload.single('studentImage'), (req,res)=>{
              year:req.body.year,
              passingYear:req.body.passingYear,
              universityRollNo:req.body.universityRollNo,
-             studentImage: req.file.path
+             //studentImage: req.file.path
            }
     }, (err, docs)=>
     {
