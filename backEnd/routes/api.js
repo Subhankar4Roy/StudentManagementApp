@@ -78,27 +78,48 @@ router.post('/', upload.single('studentImage'), (req,res)=>{
   }
   );
 
-  router.put('/:id', (req, res)=>{
-    Studentmodel.findOneAndUpdate({_id:req.params.id},{
-      $set:{ name:req.body.name,
-             email:req.body.email,
-             phone:req.body.phone,
-             discipline:req.body.discipline,
-             department:req.body.department,
-             year:req.body.year,
-             passingYear:req.body.passingYear,
-             universityRollNo:req.body.universityRollNo,
-             //studentImage: req.file.path
-           }
-    }, (err, docs)=>
-    {
-      if(!err) 
-      {res.json(docs);} 
-      else
-      {res.json(err);}
-    }
+  router.put('/:id',upload.single('studentImage'), (req, res)=>{
+    if(!req.file)
+      {Studentmodel.findOneAndUpdate({_id:req.params.id},{
+        $set:{ name:req.body.name,
+               email:req.body.email,
+               phone:req.body.phone,
+               discipline:req.body.discipline,
+               department:req.body.department,
+               year:req.body.year,
+               passingYear:req.body.passingYear,
+               universityRollNo:req.body.universityRollNo,
 
-    )}
+             }
+      }, (err, docs)=>
+      {
+        if(!err) 
+        {res.json(docs);} 
+        else
+        {res.json(err);}
+      }
+      )}
+      else {
+        Studentmodel.findOneAndUpdate({_id:req.params.id},{
+          $set:{ name:req.body.name,
+                 email:req.body.email,
+                 phone:req.body.phone,
+                 discipline:req.body.discipline,
+                 department:req.body.department,
+                 year:req.body.year,
+                 passingYear:req.body.passingYear,
+                 universityRollNo:req.body.universityRollNo,
+                 studentImage: req.file.path
+               }
+        }, (err, docs)=>
+        {
+          if(!err) 
+          {res.json(docs);} 
+          else
+          {res.json(err);}
+        }
+        )
+      }}
   
   
   
