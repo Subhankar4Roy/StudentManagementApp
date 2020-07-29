@@ -11,21 +11,23 @@ import * as Highcharts from 'highcharts';
 })
 export class DashboardComponent implements OnInit {
   total;
+  xnumbers =[0,0,0,0,0];
   students =[];
   chartOptions = {};
   Highcharts = Highcharts;
   constructor(private studentsService : StudentsService) { }
   
-  getTotalStudents(){
-    this.studentsService.getStudents().subscribe(
-      // res => this.students =res,
-      res =>{console.log(res.length) 
-      this.total = res.length} ,
-      err => console.log(err),
-    )
-     //this.total = this.students.length;
-  }
+//   getTotalStudents(){
+//     this.studentsService.getStudents().subscribe(
+//       // res => this.students =res,
+//       res =>{console.log(res.length) 
+//       this.total = res.length} ,
+//       err => console.log(err),
+//     )
+//      //this.total = this.students.length;
+//   }
   ngOnInit(): void {
+    this.getTotalStudents();
     this.chartOptions = {
       chart: {
           type: 'column'
@@ -97,10 +99,40 @@ export class DashboardComponent implements OnInit {
               ]
           }
       ]
-  };
+  }
 
-  this.total = this.getTotalStudents()
   
+  
+  }
+
+//   Dashboard Filter wrt Department
+async getTotalStudents(){
+    this.studentsService.getStudents().subscribe(
+      // res => this.students =res,
+      res =>{console.log(res.length) 
+        this.students = res;
+      this.total = res.length
+      console.log(this.students[0])
+        let m=0
+        let a=0 
+        let b=0
+        for(m=0; m<this.total; m++)
+         {
+           if(this.students[m].department==='IT')
+             {a++; this.xnumbers[0]=a}
+            else if(this.students[m].department==='CSE')
+              {b++; this.xnumbers[1]=b}
+         }
+     
+      console.log(a)
+      console.log(b)
+    
+    
+    } ,
+      err => console.log(err),
+    )
+     //this.total = this.students.length;
+    //  await this.filter()
   }
 
 

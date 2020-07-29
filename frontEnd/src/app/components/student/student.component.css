@@ -1,7 +1,8 @@
+.input{
+    text-align: center;
+}
 .view-type{
-    float: right;
-    margin: 15px;
-    width:fit-content;
+    text-align: right;
 }
 .fab {
     position: fixed;

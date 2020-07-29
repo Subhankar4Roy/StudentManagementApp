@@ -1,11 +1,44 @@
-<span class="view-type">
-  <button *ngIf="!listView" (click)="listView=!listView">
-    <mat-icon>view_list</mat-icon>
-  </button>
-  <button *ngIf="listView" (click)="listView=!listView">
-    <mat-icon>view_module</mat-icon>
-  </button>
-</span>
+<div class="filter">
+  <div class="input" >
+    <mat-form-field style="margin: 10px;">
+      <mat-label>Discipline</mat-label>
+      <mat-select>
+        <mat-option value="BTech">BTech</mat-option>
+        <mat-option value="MTech">MTech</mat-option>
+        <mat-option value="MCA">MTech</mat-option>     
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field style="margin: 10px;">
+      <mat-label>Year</mat-label>
+      <mat-select>
+        <mat-option value="1st">1st</mat-option>
+        <mat-option value="2nd">2nd</mat-option>
+        <mat-option value="3rd">3rd</mat-option>
+        <mat-option value="4th">4th</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field style="margin: 10px;">
+      <mat-label>Department</mat-label>
+      <mat-select>
+        <mat-option value="IT">IT</mat-option>
+        <mat-option value="CSE">CSE</mat-option>
+        <mat-option value="ECE">ECE</mat-option>
+        <mat-option value="EE">EE</mat-option>
+        <mat-option value="ME">ME</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button>Filter</button>
+  </div>
+
+  <div class="view-type">
+    <button mat-icon-button *ngIf="!listView" (click)="listView=!listView">
+      <mat-icon>view_list</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="listView" (click)="listView=!listView">
+      <mat-icon>view_module</mat-icon>
+    </button>
+  </div>
+</div>
 
 <div>
   <div class="list-view" *ngIf="listView">
