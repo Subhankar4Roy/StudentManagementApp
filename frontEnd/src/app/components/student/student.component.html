@@ -1,16 +1,16 @@
 <div class="filter">
   <div class="input" >
-    <mat-form-field style="margin: 10px;">
+    <!-- <mat-form-field style="margin: 10px;">
       <mat-label>Discipline</mat-label>
-      <mat-select>
+      <mat-select [(ngModel)]="querry.discipline">
         <mat-option value="BTech">BTech</mat-option>
         <mat-option value="MTech">MTech</mat-option>
-        <mat-option value="MCA">MTech</mat-option>     
+        <mat-option value="MCA">MCA</mat-option>     
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-form-field style="margin: 10px;">
       <mat-label>Year</mat-label>
-      <mat-select>
+      <mat-select [(ngModel)]="querry.year">
         <mat-option value="1st">1st</mat-option>
         <mat-option value="2nd">2nd</mat-option>
         <mat-option value="3rd">3rd</mat-option>
@@ -19,7 +19,7 @@
     </mat-form-field>
     <mat-form-field style="margin: 10px;">
       <mat-label>Department</mat-label>
-      <mat-select>
+      <mat-select [(ngModel)]="querry.department">
         <mat-option value="IT">IT</mat-option>
         <mat-option value="CSE">CSE</mat-option>
         <mat-option value="ECE">ECE</mat-option>
@@ -27,7 +27,7 @@
         <mat-option value="ME">ME</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button>Filter</button>
+    <button mat-button  (click)=addquerry() >Filter</button>
   </div>
 
   <div class="view-type">
@@ -40,7 +40,12 @@
   </div>
 </div>
 
-<div>
+<!-- <h1 *ngFor="let filteredstudent of filteredstudents">
+ pq {{ filteredstudent.name }}
+</h1> -->
+
+
+<div class="exp">
   <div class="list-view" *ngIf="listView">
     <mat-selection-list [multiple]="false">
         <mat-list-option (click)="openDialogToView(student)" class="example-ripple-container mat-elevation-z0"
